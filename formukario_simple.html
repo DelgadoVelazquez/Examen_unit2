@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejemplo de Formulario</title>
+</head>
+<body>
+    <h2>Escribe algo y pégalo en pantalla</h2>
+    
+    <!-- Formulario -->
+    <form id="myForm">
+        <input type="text" id="entradaTexto" placeholder="Escribe algo aquí...">
+        <button type="submit">Pegar</button>
+    </form>
+    
+    <!-- Elemento donde se mostrará el texto pegado -->
+    <div id="resultado"></div>
+
+    <script>
+        // Obtener referencia al formulario
+        const form = document.getElementById("myForm");
+
+        // Agregar evento al enviar el formulario
+        form.addEventListener("submit", function(event) {
+            // Evitar que el formulario se envíe y la página se recargue
+            event.preventDefault();
+
+            // Obtener el texto del campo de entrada
+            const texto = document.getElementById("entradaTexto").value;
+
+            // Crear un nuevo párrafo con el texto
+            const nuevoParrafo = document.createElement("p");
+            nuevoParrafo.textContent = texto;
+
+            // Obtener referencia al elemento donde se mostrará el texto pegado
+            const resultado = document.getElementById("resultado");
+
+            // Agregar el nuevo párrafo al div de resultado
+            resultado.appendChild(nuevoParrafo);
+
+            // Limpiar el campo de entrada
+            document.getElementById("entradaTexto").value = "";
+        });
+    </script>
+</body>
+</html>
